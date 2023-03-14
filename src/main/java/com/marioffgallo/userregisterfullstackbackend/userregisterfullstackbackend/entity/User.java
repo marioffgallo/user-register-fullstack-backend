@@ -21,4 +21,8 @@ public class User {
     private String email;
     private Date birthDate;
 
+    @Override
+    public String toString() {
+        return id + "," + name + "," + age + "," + email + "," + birthDate;
+    }
 }
