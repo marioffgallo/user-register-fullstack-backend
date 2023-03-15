@@ -2,7 +2,7 @@ package com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbacke
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbackend.entity.LogEvent;
+import com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbackend.model.LogEventDTO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +23,10 @@ public class MessageProducer {
     @Value("${activemq.queue.name}")
     String destination;
 
-    public void send(LogEvent logEvent) {
+    public void send(LogEventDTO logEventDTO) {
         ObjectMapper objectMapper = new ObjectMapper();
         try{
-            String json = objectMapper.writeValueAsString(logEvent);
+            String json = objectMapper.writeValueAsString(logEventDTO);
             jmsTemplate.convertAndSend(destination, json);
             log.info("Sent log='{}'", json);
         } catch(IOException e) {
