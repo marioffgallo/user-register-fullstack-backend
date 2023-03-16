@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.marioffgallo.user-register-fullstack-backend</groupId>
 	<artifactId>user-register-fullstack-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>user-register-fullstack-backend</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

@@ -9,7 +9,6 @@ import com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbacken
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -29,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers(boolean invertOrder) {
-        if(invertOrder){
+        if (invertOrder) {
             return repository.findAllByOrderByIdDesc();
         } else {
             return repository.findAllByOrderByIdAsc();
@@ -75,6 +74,11 @@ public class UserServiceImpl implements UserService {
         ResponseEntity<LogEventDTO> responseEntity = restTemplate
                 .postForEntity("http://localhost:9192/api/database/logs/create", logEventDTO, LogEventDTO.class);
 
+        /*
+        CODIGO PARA SUBIR NO DOCKER
+        ResponseEntity<LogEventDTO> responseEntity = restTemplate
+                .postForEntity("http://user-register-backend-log:9192/api/database/logs/create", logEventDTO, LogEventDTO.class);
+        */
         return responseEntity.getBody();
     }
 

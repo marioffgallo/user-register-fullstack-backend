@@ -12,6 +12,10 @@ import org.springframework.jms.core.JmsTemplate;
 public class JmsConfig {
 
     String brokerUrl = "tcp://localhost:61616";
+    /*
+    CODIGO PARA SUBIR NO DOCKER
+    String brokerUrl = "tcp://0.0.0.0:61616";
+    */
 
     @Bean
     public BrokerService broker() throws Exception {
