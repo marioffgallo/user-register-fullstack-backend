@@ -1,6 +1,11 @@
 # User Register Fullstack - Backend
 Projeto Backend feito em Java 11 com o CRUD que gerencia usuários num banco de dados MYSQL, em paralelo roda a mensageria Active MQ embedado do qual envia informações de log para o segundo microserviço User Register Fullstack - Backend Log responsavel pela gravação e gerenciamento dos logs.
 
+# Executar local
+Necessário ter um MySQL instalado com a porta 3306 liberado.
+
+Username e password precisam ser atualizados no application.properties tambem.
+
 # Gerar imagem no Docker
 Necessário descomentar a primeira linha no application.properties para o maven utilizar as configurações do perfil docker.
 
@@ -15,6 +20,15 @@ docker build -t user-register-fullstack-backend .
 Depois integrar o container no network do MySQL e utilizar a porta 9191:9191 para executar o container. O comando abaixo executa tudo isso de uma vez:
 
 docker run --network springboot-mysql-net --name user-register-backend -p 9191:9191 user-register-fullstack-backend
+
+# Repositorios
+
+Frontend -> https://github.com/marioffgallo/user-register-fullstack-frontend
+
+Backend -> https://github.com/marioffgallo/user-register-fullstack-backend
+
+Backend-log -> https://github.com/marioffgallo/user-register-fullstack-backend-log
+
 
 # Swagger
 Acessar url:
