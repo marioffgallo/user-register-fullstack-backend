@@ -11,7 +11,9 @@ Necessário descomentar a primeira linha no application.properties para o maven 
 
 No momento é necessário descomentar a variavel brokerUrl no JMSConfig.java pois a porta tcp deve ser outro valor e a anotação @Value do spring não funcionou nesse caso.
 
-Tambem é necessário descomentar o responseEntity no método createLog do serviço UserServiceImpl.java pois tambem não funcionou o @Value.
+Tambem é necessário descomentar nesses arquivos(pois tambem não funcionou o @Value):
+- O responseEntity no método createLog do serviço UserServiceImpl.java;
+- O expectedUrl no arquivo de teste UserServiceTeste.java;
 
 Após isso gerar a imagem com o comando:
 

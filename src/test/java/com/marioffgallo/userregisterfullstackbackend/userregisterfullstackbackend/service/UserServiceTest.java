@@ -131,6 +131,11 @@ public class UserServiceTest {
     public void testCreateLog() {
         String expectedUrl = "http://localhost:9192/api/database/logs/create";
 
+        /*
+        URL para buildar no Docker
+        String expectedUrl = "http://user-register-backend-log:9192/api/database/logs/create";
+        */
+
         LogEventDTO expectedLog = new LogEventDTO(
             1,"GET",new Date(2020,01,01),"teste"
         );
