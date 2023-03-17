@@ -2,12 +2,16 @@ package com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbacke
 
 import org.apache.activemq.broker.BrokerService;
 import org.apache.activemq.pool.PooledConnectionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.core.JmsTemplate;
 
+/**
+ * JMS configurations to run the ActiveMQ broker embedded and activate to post messages on the queue
+ *
+ * @author Mario F.F Gallo
+ * @version 1.0
+ */
 @Configuration
 public class JmsConfig {
 

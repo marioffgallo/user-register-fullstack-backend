@@ -16,6 +16,9 @@ import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * User service interface
+ */
 public interface UserService {
 
     public List<User> getAllUsers(boolean invertOrder);

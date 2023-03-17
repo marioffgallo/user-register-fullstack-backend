@@ -12,6 +12,12 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+/**
+ * Message producer for the logs send to ActiveMQ queue
+ *
+ * @author Mario F.F Gallo
+ * @version 1.0
+ */
 @Service
 public class MessageProducer {
 

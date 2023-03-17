@@ -6,6 +6,12 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+/**
+ * Log Event model for handle data
+ *
+ * @author Mario F.F Gallo
+ * @version 1.0
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
