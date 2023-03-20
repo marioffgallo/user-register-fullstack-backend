@@ -7,6 +7,7 @@ import com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbacken
 import com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbackend.services.exceptions.DatabaseException;
 import com.marioffgallo.userregisterfullstackbackend.userregisterfullstackbackend.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,9 @@ import java.util.Optional;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
+    @Value("${backend-log.url}")
+    String backendLogUrl;
 
     @Autowired
     private UserRepository repository;
@@ -135,13 +139,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public LogEventDTO createLog(LogEventDTO logEventDTO) {
         ResponseEntity<LogEventDTO> responseEntity = restTemplate
-                .postForEntity("http://localhost:9192/api/database/logs/create", logEventDTO, LogEventDTO.class);
+                .postForEntity( backendLogUrl + "logs/create", logEventDTO, LogEventDTO.class);
 
-        /*
-        CODIGO PARA SUBIR NO DOCKER
-        ResponseEntity<LogEventDTO> responseEntity = restTemplate
-                .postForEntity("http://user-register-backend-log:9192/api/database/logs/create", logEventDTO, LogEventDTO.class);
-        */
         return responseEntity.getBody();
     }
 

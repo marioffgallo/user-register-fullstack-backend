@@ -25,6 +25,7 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.web.client.RestTemplate;
 
 @ExtendWith(MockitoExtension.class)
@@ -43,6 +44,7 @@ public class UserServiceTest {
     @BeforeEach
     public void setup() {
         MockitoAnnotations.initMocks(this);
+        ReflectionTestUtils.setField(userServiceImpl, "backendLogUrl", "http://localhost:9192/api/database/");
     }
 
     @Test
@@ -130,11 +132,6 @@ public class UserServiceTest {
     @Test
     public void testCreateLog() {
         String expectedUrl = "http://localhost:9192/api/database/logs/create";
-
-        /*
-        URL para buildar no Docker
-        String expectedUrl = "http://user-register-backend-log:9192/api/database/logs/create";
-        */
 
         LogEventDTO expectedLog = new LogEventDTO(
             1,"GET",new Date(2020,01,01),"teste"
